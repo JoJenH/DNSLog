@@ -1,2 +1,2 @@
-Django==1.8.7
-dnslib==0.9.6
+Django==4.0.3
+dnslib==0.9.19

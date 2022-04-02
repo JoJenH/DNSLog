@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('remote_addr', models.GenericIPAddressField(verbose_name=b'remote_addr')),
                 ('http_user_agent', models.CharField(max_length=256, verbose_name=b'user_agent')),
                 ('log_time', models.DateTimeField(verbose_name=b'time loged')),
-                ('user', models.ForeignKey(to='logview.User')),
+                ('user', models.ForeignKey(to='logview.User', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['log_time'],
@@ -44,6 +44,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='dnslog',
             name='user',
-            field=models.ForeignKey(to='logview.User'),
+            field=models.ForeignKey(to='logview.User', on_delete=models.CASCADE),
         ),
     ]

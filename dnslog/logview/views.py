@@ -1,12 +1,12 @@
 # coding=utf-8
 
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.core.paginator import (
     Paginator, InvalidPage, EmptyPage, PageNotAnInteger)
 from django import forms
-from models import *
+from .models import *
 from dnslog import settings
 from django.contrib.auth import logout
 
@@ -133,7 +133,7 @@ def logview(request, userid):
     vardict['udomain'] = str(user.udomain)
     vardict['admindomain'] = str(settings.ADMIN_DOMAIN)
 
-    return render_to_response('views.html', vardict)
+    return render(request, 'views.html')
 
 
 def api(request, logtype, udomain, hashstr):

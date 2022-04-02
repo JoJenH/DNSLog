@@ -15,7 +15,7 @@ admin.site.register(User, UserAdmin)
 
 
 class WebLog(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     path = models.TextField('path')
     remote_addr = models.GenericIPAddressField('remote_addr')
     http_user_agent = models.TextField('user_agent')
@@ -34,7 +34,7 @@ admin.site.register(WebLog, WebLogAdmin)
 
 
 class DNSLog(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     host = models.TextField('host')
     type = models.TextField('dns type')
     log_time = models.DateTimeField('time loged', auto_now_add=True)
